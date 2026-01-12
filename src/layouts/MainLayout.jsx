@@ -12,6 +12,9 @@ const MainLayout = () => {
           <Link to="/" className="hover:text-blue-500">
             Home
           </Link>
+          <Link to="/catalog" className="hover:text-blue-500">
+            Catalog
+          </Link>
           <Link to="/projects" className="hover:text-blue-500">
             Projects
           </Link>
