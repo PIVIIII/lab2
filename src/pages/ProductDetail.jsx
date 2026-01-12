@@ -5,6 +5,7 @@ const ProductDetail = () => {
   const { id } = useParams(); // ดึง ID จาก URL
   const navigate = useNavigate(); // ใช้สำหรับสั่งเปลี่ยนหน้า
 
+  // ค้นหาสินค้าที่ ID ตรงกับใน URL
   const product = products.find((p) => p.id === id);
 
   // กรณีไม่พบสินค้า (NotFound Handling)
@@ -25,7 +26,7 @@ const ProductDetail = () => {
   return (
     <div className="max-w-2xl mx-auto border rounded-2xl shadow-sm p-10">
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate(-1)} // สั่งย้อนกลับไปหน้าก่อนหน้า
         className="mb-4 text-sm text-gray-500 hover:text-black transition"
       >
         ← Back to Catalog

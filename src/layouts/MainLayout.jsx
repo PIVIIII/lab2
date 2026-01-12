@@ -10,10 +10,10 @@ const MainLayout = () => {
         <h1 className="text-xl font-bold">MyPortfolio</h1>
         <div className="space-x-4 flex items-center">
           <Link to="/" className="hover:text-blue-500">
-            Home
-          </Link>
-          <Link to="/catalog" className="hover:text-blue-500">
             Catalog
+          </Link>
+          <Link to="/home" className="hover:text-blue-500">
+            Home
           </Link>
           <Link to="/projects" className="hover:text-blue-500">
             Projects
