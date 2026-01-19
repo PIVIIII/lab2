@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import MainLayout from './layouts/MainLayout';
+import FormLayout from './layouts/FormLayout';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
-
+import Step1 from './pages/Step1';
+import Step2 from './pages/Step2';
+import Review from './pages/Review';
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +21,11 @@ function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} />
             <Route path="product/:id" element={<ProductDetail />} />
+          </Route>
+          <Route path="/apply" element={<FormLayout />}>
+            <Route path="step-1" element={<Step1 />} />
+            <Route path="step-2" element={<Step2 />} />
+            <Route path="review" element={<Review />} />
           </Route>
         </Routes>
       </ThemeProvider>
