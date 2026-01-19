@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
+import { useCartStore } from '../store/useCartStore';
 
 const ProductDetail = () => {
   const { id } = useParams(); // ดึง ID จาก URL
   const navigate = useNavigate(); // ใช้สำหรับสั่งเปลี่ยนหน้า
-
+  const addToCart = useCartStore((state) => state.addToCart);
   // ค้นหาสินค้าที่ ID ตรงกับใน URL
   const product = products.find((p) => p.id === id);
 
@@ -31,13 +32,21 @@ const ProductDetail = () => {
       >
         ← Back to Catalog
       </button>
-
       <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
       <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
         {product.category}
       </span>
       <p className="text-2xl text-green-600 my-4">{product.price} THB</p>
-      <p className="text-gray-600 leading-relaxed">{product.desc}</p>
+      <p className="text-gray-600 leading-relaxed mb-6">{product.desc}</p>
+      <button
+        onClick={() => {
+          addToCart(product);
+          alert(`${product.name} added to cart!`);
+        }}
+        className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+      >
+        🛒 Add to Cart
+      </button>{' '}
     </div>
   );
 };
